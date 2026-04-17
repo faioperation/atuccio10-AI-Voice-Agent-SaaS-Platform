@@ -5,7 +5,7 @@ export default function Metrics() {
     <section id="metrics" style={{ background:"#fff", padding:"96px 0" }}>
       <div className="container-xl">
         {/* Header row */}
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1.6fr", gap:"64px", alignItems:"center", marginBottom:"56px" }}>
+        <div id="metrics-header-row" style={{ gap:"64px", alignItems:"center", marginBottom:"56px" }}>
           <div>
             <div className="eyebrow">Metrics that Matter</div>
             <h2 style={{
@@ -20,8 +20,7 @@ export default function Metrics() {
           </div>
 
           {/* Big 3 numbers */}
-          <div style={{
-            display:"grid", gridTemplateColumns:"repeat(3,1fr)",
+          <div id="metrics-big-stats" style={{
             background:"#F5F4F2", borderRadius:"16px",
             border:"1px solid #e4edf5", overflow:"hidden",
           }}>
@@ -30,9 +29,8 @@ export default function Metrics() {
               { v:"452",   l:"Appointments Set", s:"avg / team / mo",  c:"#7c3aed" },
               { v:"68%",   l:"Transfer Rate",    s:"lead to handoff",  c:"#22C47A" },
             ].map((s,i) => (
-              <div key={s.l} style={{
+              <div className="metrics-stat-item" key={s.l} style={{
                 padding:"32px 24px",
-                borderRight: i<2 ? "1px solid #e4edf5" : "none",
                 transition:"background 0.18s",
               }}
               onMouseEnter={e => (e.currentTarget.style.background="#E8F2FC")}
@@ -47,7 +45,7 @@ export default function Metrics() {
         </div>
 
         {/* Bottom 3 cards */}
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"18px" }}>
+        <div id="metrics-bottom-grid" style={{ gap:"18px" }}>
           {[
             { v:"+314%", l:"Avg Efficiency Gain",  d:"Teams see over 3× productivity without adding headcount." },
             { v:"<30s",  l:"Speed to Lead",        d:"AI follows up in under 30 seconds while intent is at peak." },
@@ -68,6 +66,24 @@ export default function Metrics() {
           ))}
         </div>
       </div>
+      <style>{`
+        #metrics-header-row { display: grid; grid-template-columns: 1fr 1.6fr; }
+        #metrics-big-stats { display: grid; grid-template-columns: repeat(3, 1fr); }
+        .metrics-stat-item:not(:last-child) { border-right: 1px solid #e4edf5; }
+        #metrics-bottom-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+
+        @media(max-width:1024px){
+          #metrics-header-row { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+          #metrics-big-stats { grid-template-columns: 1fr; }
+          .metrics-stat-item:not(:last-child) { border-right: none; border-bottom: 1px solid #e4edf5; }
+        }
+        @media(max-width:900px){
+          #metrics-bottom-grid { grid-template-columns: 1fr; gap: 16px; }
+        }
+        @media(max-width:640px){
+          #metrics { padding: 48px 0 24px !important; }
+        }
+      `}</style>
     </section>
   );
 }

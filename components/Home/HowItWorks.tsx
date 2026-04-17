@@ -40,9 +40,9 @@ export default function HowItWorks() {
         </div>
 
         {/* Steps */}
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:"20px", position:"relative" }}>
+        <div id="steps-grid" style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:"20px", position:"relative" }}>
           {/* Connector line */}
-          <div style={{
+          <div id="connector-line" style={{
             position:"absolute", top:"27px", left:"calc(12.5% + 10px)", right:"calc(12.5% + 10px)",
             height:"1px", background:"linear-gradient(90deg, transparent, rgba(107,159,212,0.25) 20%, rgba(107,159,212,0.25) 80%, transparent)",
             zIndex:0,
@@ -77,7 +77,13 @@ export default function HowItWorks() {
 
       <style>{`.eyebrow::before { background: #6B9FD4; }
         @media(max-width:900px){
-          #how-it-works > div > div:last-child { grid-template-columns:repeat(2,1fr)!important; }
+          #how-it-works { padding: 64px 0 !important; }
+          #steps-grid { grid-template-columns:repeat(2,1fr)!important; gap: 40px !important; }
+          #connector-line { display: none; }
+        }
+        @media(max-width:640px){
+          #steps-grid { grid-template-columns:1fr!important; text-align: center; }
+          #steps-grid > div > div:first-child { margin-left: auto; margin-right: auto; }
         }
       `}</style>
     </section>

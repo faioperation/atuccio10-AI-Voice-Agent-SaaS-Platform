@@ -28,9 +28,9 @@ export default function Features() {
     <section id="features" style={{ background: "#fff", padding: "96px 0" }}>
       <div className="container-xl">
         {/* Header */}
-        <div style={{ marginBottom: "56px" }}>
+        <div id="features-header" style={{ marginBottom: "56px" }}>
           <div className="eyebrow">Engineered for Precision</div>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: "32px" }}>
+          <div className="header-flex" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: "32px" }}>
             <h2 style={{
               fontSize: "clamp(28px,3.2vw,42px)", fontWeight: 900,
               lineHeight: 1.1, letterSpacing: "-0.03em", color: "#0C1824",
@@ -39,7 +39,7 @@ export default function Features() {
               Every feature built for{" "}
               <span className="grad-text">insurance teams</span>
             </h2>
-            <p style={{ fontSize: "15px", color: "#4a6070", lineHeight: 1.7, maxWidth: "360px", flexShrink: 0 }}>
+            <p className="header-p" style={{ fontSize: "15px", color: "#4a6070", lineHeight: 1.7, maxWidth: "360px", flexShrink: 0 }}>
               Clinch is purpose-built for cadence, compliance, and closing — not bolted-on AI.
             </p>
           </div>
@@ -95,7 +95,7 @@ export default function Features() {
             }} />
 
             {/* Live badge */}
-            <div style={{
+            <div id="live-badge" style={{
               position: "absolute", top: "20px", right: "20px", zIndex: 2,
               background: "rgba(255,255,255,0.12)", backdropFilter: "blur(8px)",
               border: "1px solid rgba(255,255,255,0.22)", borderRadius: "100px",
@@ -106,12 +106,13 @@ export default function Features() {
             </div>
 
             {/* Text content */}
-            <div style={{ position: "relative", zIndex: 2, padding: "32px" }}>
+            <div id="feature-text-content" style={{ position: "relative", zIndex: 2, padding: "32px" }}>
               <div style={{ fontSize: "11px", fontWeight: 700, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "10px" }}>
                 A Qualified Lead Ready to Close
               </div>
               <h3 style={{ fontSize: "clamp(20px,2.2vw,26px)", fontWeight: 900, color: "#fff", lineHeight: 1.2, marginBottom: "14px", letterSpacing: "-0.02em" }}>
-                Your top closers never<br />waste a dial again.
+                Your top closers never {" "}
+                <br />waste a dial again.
               </h3>
               <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.65)", lineHeight: 1.65, marginBottom: "24px" }}>
                 AI pre-screens every lead so agents walk into every call knowing exactly who they&apos;re talking to and why they&apos;ll close.
@@ -131,9 +132,20 @@ export default function Features() {
       </div>
 
       <style>{`
+        @media(max-width:1024px){
+          .header-flex { flex-direction: column; align-items: flex-start !important; gap: 16px !important; }
+          .header-p { max-width: 100% !important; }
+        }
         @media(max-width:900px){
           #features > div > div:last-child { grid-template-columns:1fr!important; }
           #features > div > div:last-child > div:last-child { min-height:300px!important; }
+        }
+        @media(max-width:640px){
+          #features { padding: 64px 0 !important; }
+          #features > div > div:first-child { text-align: center; }
+          #features > div > div:first-child > div:last-child { align-items: center !important; }
+          #live-badge { top: 16px; right: 16px; transform: scale(0.85); }
+          #feature-text-content { padding-top: 64px !important; }
         }
       `}</style>
     </section>

@@ -52,7 +52,7 @@ export default function Pricing() {
         </div>
 
         {/* Cards */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "20px", alignItems: "start" }}>
+        <div id="pricing-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "20px", alignItems: "start" }}>
           {plans.map((p) => (
             <div key={p.name} style={{
               background: p.featured ? "#0C1824" : "#fff",
@@ -115,12 +115,13 @@ export default function Pricing() {
                 boxShadow: p.featured ? "0 4px 18px rgba(26,107,220,0.38)" : "none",
                 transition: "all 0.15s",
               }}
-                onMouseEnter={e => {
+                className="btn-primary"
+                onMouseEnter={(e) => {
                   const el = e.currentTarget;
-                  if (p.featured) { el.style.background = "#1558be"; el.style.transform = "translateY(-1px)"; }
-                  else { el.style.background = "#E8F2FC"; }
+                  el.style.background = p.featured ? "#1558be" : "#E8F2FC";
+                  el.style.transform = "translateY(-2px)";
                 }}
-                onMouseLeave={e => {
+                onMouseLeave={(e) => {
                   const el = e.currentTarget;
                   el.style.transform = "none";
                   if (p.featured) el.style.background = "#1A6BDC";
@@ -132,15 +133,22 @@ export default function Pricing() {
         </div>
 
         <p style={{ textAlign: "center", fontSize: "12px", color: "#6B9FD4", marginTop: "28px" }}>
-          Base plan includes standard usage. Additional usage may be billed.
+          Base plan includes standard usage. Additional usage may be billed.{" "}
           <br />All plans include SOC 2 Type II · HIPAA-ready infrastructure · Cancel anytime
         </p>
       </div>
 
       <style>{`
-        @media(max-width:900px){
-          #pricing > div > div:nth-child(2){grid-template-columns:1fr!important;}
-          #pricing > div > div:nth-child(2) > div {transform:none!important;}
+        @media(max-width:1024px){
+          #pricing-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 24px !important; }
+          #pricing-grid > div:last-child { grid-column: span 2; max-width: 500px; margin: 0 auto; width: 100%; }
+        }
+        @media(max-width:768px){
+          #pricing-grid { grid-template-columns: 1fr !important; }
+          #pricing-grid > div:last-child { grid-column: span 1; }
+        }
+        @media(max-width:640px){
+          #pricing { padding: 32px 0 48px !important; }
         }
       `}</style>
     </section>

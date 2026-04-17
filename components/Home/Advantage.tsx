@@ -4,7 +4,7 @@ export default function Advantage() {
   return (
     <section id="advantage" style={{ background:"#F5F4F2", padding:"96px 0" }}>
       <div className="container-xl">
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"72px", alignItems:"center" }}>
+        <div id="advantage-grid" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"72px", alignItems:"center" }}>
           {/* LEFT */}
           <div>
             <div className="eyebrow">The Invisible Edge</div>
@@ -18,10 +18,10 @@ export default function Advantage() {
             <p style={{ fontSize:"15px", color:"#4a6070", lineHeight:1.72, marginBottom:"32px" }}>
               While your rep talks, Clinch&apos;s AI listens, analyzes, and surfaces the perfect
               response — battle cards, objection handlers, compliance cues — invisible to the lead.
-              Our AI is trained by thousands of hours of training material from some of the industry top closers, saving human agents hundreds of hours of needed coaching.
+              Our AI is trained by thousands of hours of training material from some of the industry&apos;s top closers, saving human agents hundreds of hours of needed coaching.
             </p>
 
-            <div style={{ display:"flex", flexDirection:"column", gap:"14px", marginBottom:"32px" }}>
+            <div className="advantage-list" style={{ display:"flex", flexDirection:"column", gap:"14px", marginBottom:"32px" }}>
               {[
                 { label:"Live Objection Handling", desc:"Battle cards trigger on spoken keywords, delivered in &lt;500ms." },
                 { label:"Compliance Monitoring", desc:"Flags required disclosure languages before your rep moves on." },
@@ -129,7 +129,7 @@ export default function Advantage() {
             </div>
 
             {/* Accuracy badge */}
-            <div style={{
+            <div id="accuracy-badge" style={{
               position:"absolute", top:"-16px", right:"-16px", zIndex:2,
               background:"#0C1824", borderRadius:"12px", padding:"10px 18px",
               boxShadow:"0 8px 28px rgba(12,24,36,0.22)",
@@ -144,8 +144,23 @@ export default function Advantage() {
       </div>
 
       <style>{`
+        @media(max-width:1024px){
+          #advantage-grid { gap: 48px !important; }
+        }
         @media(max-width:900px){
-          #advantage > div > div { grid-template-columns:1fr!important; }
+          #advantage { padding: 64px 0 !important; }
+          #advantage-grid { grid-template-columns:1fr!important; gap: 40px !important; }
+        }
+        @media(max-width:640px){
+          #advantage-grid > div:first-child { text-align: center; }
+          #advantage-grid > div:first-child > div:nth-of-type(2) { justify-content: center; }
+          .advantage-list { text-align: left; }
+          #accuracy-badge { 
+            top: -10px; 
+            right: -10px; 
+            transform: scale(0.75);
+            transform-origin: top right;
+          }
         }
       `}</style>
     </section>
