@@ -25,7 +25,7 @@ export default function Hero() {
       }} />
 
       <div className="container-xl" style={{ position:"relative" }}>
-        <div style={{
+        <div id="hero-grid" style={{
           display:"grid", gridTemplateColumns:"1fr 1fr",
           gap:"56px", alignItems:"center",
         }}>
@@ -61,21 +61,21 @@ export default function Hero() {
             </div>
 
             {/* Trust row */}
-            <div style={{
+            <div id="hero-trust-row" style={{
               marginTop:"44px", paddingTop:"28px",
               borderTop:"1px solid #dde8f0",
-              display:"flex", gap:"32px", alignItems:"center",
+              display:"flex", gap:"32px", alignItems:"center", flexWrap:"wrap"
             }}>
               {[
                 { v:"1,200+", l:"Teams Onboarded" },
                 { v:"314%",   l:"Avg Efficiency Gain" },
                 { v:"68%",    l:"Transfer Rate" },
               ].map((s,i) => (
-                <div key={s.l} style={{ display:"flex", alignItems:"center", gap: i>0?"32px":"0" }}>
-                  {i>0 && <div style={{ width:"1px", height:"32px", background:"#dde8f0" }} />}
-                  <div>
-                    <div style={{ fontSize:"22px", fontWeight:900, color:"#0C1824", letterSpacing:"-0.02em" }}>{s.v}</div>
-                    <div style={{ fontSize:"11px", color:"#6B9FD4", fontWeight:600, marginTop:"1px" }}>{s.l}</div>
+                <div key={s.l} className="trust-item" style={{ display:"flex", alignItems:"center", gap: i>0?"32px":"0" }}>
+                  {i>0 && <div className="trust-sep" style={{ width:"1px", height:"32px", background:"#dde8f0" }} />}
+                  <div className="trust-content">
+                    <div className="trust-val" style={{ fontSize:"22px", fontWeight:900, color:"#0C1824", letterSpacing:"-0.02em" }}>{s.v}</div>
+                    <div className="trust-lbl" style={{ fontSize:"11px", color:"#6B9FD4", fontWeight:600, marginTop:"1px" }}>{s.l}</div>
                   </div>
                 </div>
               ))}
@@ -83,7 +83,7 @@ export default function Hero() {
           </div>
 
           {/* RIGHT — Dashboard */}
-          <div style={{ position:"relative" }}>
+          <div id="hero-dashboard" style={{ position:"relative" }}>
             {/* Outer glow ring */}
             <div style={{
               position:"absolute", inset:"-14px",
@@ -195,9 +195,52 @@ export default function Hero() {
       </div>
 
       <style>{`
-        @media(max-width:900px){
-          #hero-grid{grid-template-columns:1fr!important}
-          #hero-dashboard{display:none}
+        @media(max-width:1024px){
+          #hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+          #hero-dashboard { 
+            display: block; 
+            max-width: 540px; 
+            margin: 0 auto; 
+            transform: scale(0.9);
+            transform-origin: center top;
+          }
+        }
+        @media(max-width:640px){
+          section { padding-top: 130px !important; padding-bottom: 40px !important; }
+          #hero-grid { 
+            text-align: center; gap: 20px !important; 
+            grid-template-columns: 1fr !important; 
+            position: relative; 
+            padding-bottom: 260px !important; 
+          }
+          #hero-grid > div:first-child { padding-bottom: 0px; }
+          #hero-grid > div:first-child > div:first-child { justify-content: center; margin-left: auto; margin-right: auto; }
+          #hero-grid > div:first-child > h1 { font-size: clamp(30px, 8vw, 42px) !important; }
+          #hero-grid > div:first-child > p { margin-left: auto; margin-right: auto; }
+          #hero-grid > div:first-child > div:nth-of-type(2) { justify-content: center; }
+          /* Enhanced Mobile Trust Row */
+          #hero-trust-row { 
+            justify-content: center !important; 
+            gap: 16px !important; 
+            max-width: 320px;
+            margin: 44px auto 0 !important;
+          }
+          .trust-sep { display: none !important; }
+          .trust-item { gap: 0 !important; flex: 1 1 40%; justify-content: center; text-align: center; }
+          .trust-content { display: flex; flex-direction: column; align-items: center; }
+          .trust-val { font-size: 20px !important; }
+          .trust-lbl { font-size: 10px !important; }
+          
+          #hero-dashboard { 
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 50% !important;
+            margin: 0 !important;
+            width: 540px !important;
+            max-width: none !important;
+            transform: translateX(-50%) scale(0.65) !important;
+            transform-origin: bottom center !important;
+          }
         }
       `}</style>
     </section>

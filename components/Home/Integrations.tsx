@@ -60,7 +60,7 @@ export default function Integrations() {
         </div>
 
         {/* Integration logos grid */}
-        <div style={{
+        <div id="integrations-grid" style={{
           display: "grid",
           gridTemplateColumns: "repeat(6, 1fr)",
           gap: "16px",
@@ -123,7 +123,7 @@ export default function Integrations() {
           <p style={{ fontSize: "14px", color: "#6B9FD4" }}>
             Don&apos;t see your platform?{" "}
           </p>
-          <a href="#" className="btn-secondary" style={{ fontSize: "14px", padding: "12px 28px" }}>
+          <a href="#footer-contact" className="btn-outline-light" style={{ fontSize: "14px", padding: "12px 28px" }}>
             Request a Custom Integration →
           </a>
         </div>
@@ -131,13 +131,15 @@ export default function Integrations() {
 
       <style>{`
         @media (max-width: 1024px) {
-          #integrations > div > div:nth-child(2) {
-            grid-template-columns: repeat(4, 1fr) !important;
+          #integrations-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
           }
         }
         @media (max-width: 640px) {
-          #integrations > div > div:nth-child(2) {
-            grid-template-columns: repeat(3, 1fr) !important;
+          #integrations { padding: 64px 0 16px !important; }
+          #integrations-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 12px !important;
           }
         }
       `}</style>

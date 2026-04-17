@@ -41,7 +41,8 @@ export default function CTA() {
           color: "#E8F2FC", letterSpacing: "-0.04em", lineHeight: 1.05,
           marginBottom: "20px",
         }}>
-          Stop wasting dials.<br />
+          Stop wasting dials.{" "}
+          <br />
           <span style={{ color: "#1A6BDC" }}>Start closing.</span>
         </h2>
 
@@ -59,6 +60,14 @@ export default function CTA() {
           </a>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 640px) {
+          #cta { padding: 32px 16px 32px !important; }
+          #cta h2 { font-size: clamp(28px, 8vw, 42px) !important; }
+          #cta p { margin-bottom: 32px !important; }
+          #cta .btn-primary { width: 100%; padding: 12px 24px !important; }
+        }
+      `}</style>
     </section>
   );
 }

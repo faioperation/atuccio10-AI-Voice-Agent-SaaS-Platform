@@ -11,7 +11,7 @@ const footerCols = {
 
 export default function Footer() {
   return (
-    <footer style={{
+    <footer id="footer-contact" style={{
       background: "#0C1824",
       borderTop: "1px solid #111d2b",
       padding: "56px 0 28px",
@@ -129,18 +129,31 @@ export default function Footer() {
       <style>{`
         @media (max-width: 1024px) {
           footer > div > div:first-child {
-            grid-template-columns: 1fr 1fr 1fr !important;
+            grid-template-columns: 1.5fr 1fr 1fr !important;
+            gap: 32px !important;
           }
           footer > div > div:first-child > div:first-child {
             grid-column: span 3;
           }
         }
         @media (max-width: 640px) {
+          footer { padding: 32px 0 24px !important; }
           footer > div > div:first-child {
             grid-template-columns: 1fr 1fr !important;
+            gap: 24px !important;
           }
           footer > div > div:first-child > div:first-child {
             grid-column: span 2;
+            text-align: center;
+          }
+          footer > div > div:first-child > div:first-child > div { justify-content: center; }
+          footer > div > div:first-child > div:first-child > p { margin: 0 auto 20px !important; }
+          footer > div > div:first-child > div:first-child > div:last-child { justify-content: center; }
+          
+          footer > div > div:last-child {
+            flex-direction: column;
+            text-align: center;
+            gap: 16px !important;
           }
         }
       `}</style>

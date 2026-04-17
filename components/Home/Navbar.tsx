@@ -16,13 +16,14 @@ export default function Navbar() {
       <div className="container-xl" style={{
         display: "flex", alignItems: "center",
         justifyContent: "space-between", height: "64px",
+        padding: "0 clamp(16px, 4vw, 32px)",
       }}>
         {/* Logo */}
         <a href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
           <Image src="/Clinch_Logo_Light.png" alt="Clinch" width={32} height={32}
-            style={{ width: "32px", height: "32px", objectFit: "contain" }} priority />
+            style={{ width: "clamp(24px, 4vw, 32px)", height: "clamp(24px, 4vw, 32px)", objectFit: "contain" }} priority />
           <span style={{
-            fontWeight: 800, fontSize: "19px", letterSpacing: "-0.02em",
+            fontWeight: 800, fontSize: "clamp(16px, 4vw, 19px)", letterSpacing: "-0.02em",
             color: "#0C1824",
           }}>Clinch</span>
         </a>
@@ -42,8 +43,8 @@ export default function Navbar() {
         </nav>
 
         {/* CTAs */}
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <a href="#pricing" className="btn-primary" style={{ fontSize: "13px", padding: "9px 20px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }} className="nav-actions">
+          <a href="#pricing" className="btn-primary d-nav-btn" style={{ fontSize: "13px", padding: "9px 20px" }}>
             Start Free Trial
           </a>
           {/* Mobile */}
@@ -59,7 +60,16 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div style={{ background: "#F5F4F2", borderTop: "1px solid #e4edf5", padding: "16px 48px 20px" }}>
+        <div style={{ 
+          background: "#F5F4F2", 
+          borderTop: "1px solid #e4edf5", 
+          padding: "16px clamp(24px, 8vw, 48px) 20px",
+          position: "absolute",
+          top: "64px",
+          left: 0,
+          right: 0,
+          boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+        }}>
           {[["Features","#features"],["How It Works","#how-it-works"],["Pricing","#pricing"],["Integrations","#integrations"]].map(([l,h]) => (
             <a key={l} href={h} onClick={() => setOpen(false)} style={{
               display:"block", fontSize:"14px", fontWeight:600, color:"#0C1824",
@@ -74,6 +84,7 @@ export default function Navbar() {
 
       <style>{`
         @media(max-width:768px) { .d-nav{display:none!important} .mob-btn{display:flex!important} }
+        @media(max-width:400px) { .d-nav-btn{display:none!important} }
       `}</style>
     </header>
   );
