@@ -15,13 +15,13 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     <div className="flex min-h-screen bg-[#F5F7FA]">
 
       {/* ── Desktop Sidebar (sticky) ── */}
-      <aside className="hidden md:flex w-[240px] flex-shrink-0 border-r border-[#E5E7EB] h-screen sticky top-0 bg-white">
+      <aside className="hidden lg:flex w-[240px] flex-shrink-0 border-r border-[#E5E7EB] h-screen sticky top-0 bg-white">
         <Sidebar />
       </aside>
 
       {/* ── Mobile Sidebar (drawer overlay) ── */}
       {sidebarOpen && (
-        <div className="fixed inset-0 z-50 md:hidden">
+        <div className="fixed inset-0 z-50 lg:hidden">
           {/* Overlay */}
           <div
             onClick={() => setSidebarOpen(false)}
