@@ -13,7 +13,7 @@ const plans = [
   },
   {
     name: "CLOSE",
-    price: "$74.99",
+    price: "$99.99",
     per: "/month",
     desc: "Just the AI assistant live prompter and features.",
     featured: true,
