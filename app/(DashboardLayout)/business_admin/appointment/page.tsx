@@ -163,7 +163,8 @@ export default function AppointmentPage() {
         </div>
 
         {/* Calendar Grid */}
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 overflow-x-auto">
+          <div className="min-w-[700px] min-h-full flex flex-col">
           {/* Weekdays Row */}
           <div className="grid grid-cols-7 border-b border-[#EDEFF2]">
             {WEEKDAYS.map((day, idx) => (
@@ -224,7 +225,7 @@ export default function AppointmentPage() {
             })}
           </div>
         </div>
-
+        </div>
       </div>
 
       <MeetingScheduleModal 

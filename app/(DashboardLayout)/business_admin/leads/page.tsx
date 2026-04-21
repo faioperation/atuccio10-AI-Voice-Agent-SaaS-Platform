@@ -115,7 +115,7 @@ export default function LeadsPage() {
 
   return (
     <div className="w-full">
-      <div className="bg-white rounded-2xl shadow-sm border border-[#EDEFF2] min-h-[800px] flex flex-col">
+      <div className="bg-white rounded-2xl shadow-sm border border-[#EDEFF2] min-h-[800px] flex flex-col overflow-hidden">
         {/* Top: Search Bar */}
         <div className="p-6 pb-4">
           <div className="relative w-full max-w-[400px]">
@@ -134,27 +134,27 @@ export default function LeadsPage() {
         </div>
 
         {/* Table Content */}
-        <div className="flex-1 overflow-x-auto px-6">
+        <div className="flex-1 overflow-x-auto">
           <table className="w-full text-left border-collapse min-w-[950px]">
             <thead>
               <tr className="border-b border-[#F1F4F9]">
-                <th className="py-4 pr-4 pl-2 text-[12px] font-semibold text-[#64748B] w-[50px]">#</th>
+                <th className="py-4 pr-4 pl-6 text-[12px] font-semibold text-[#64748B] w-[50px]">#</th>
                 <th className="py-4 px-4 text-[12px] font-semibold text-[#64748B]">Name</th>
                 <th className="py-4 px-4 text-[12px] font-semibold text-[#64748B]">Phone Number</th>
                 <th className="py-4 px-4 text-[12px] font-semibold text-[#64748B]">Email</th>
                 <th className="py-4 px-4 text-[12px] font-semibold text-[#64748B]">Date</th>
-                <th className="py-4 pl-4 text-[12px] font-semibold text-[#64748B] w-[100px]">Action</th>
+                <th className="py-4 pr-6 pl-4 text-[12px] font-semibold text-[#64748B] w-[100px]">Action</th>
               </tr>
             </thead>
             <tbody>
               {currentLeads.map((lead) => (
                 <tr key={lead.id} className="border-b border-[#F1F4F9] last:border-0 hover:bg-[#F8FAFC] transition-colors">
-                  <td className="py-[16px] pr-4 pl-2 text-[13px] font-medium text-[#64748B]">{lead.id}</td>
+                  <td className="py-[16px] pr-4 pl-6 text-[13px] font-medium text-[#64748B]">{lead.id}</td>
                   <td className="py-[16px] px-4 text-[13px] font-bold text-[#0C1824]">{lead.name}</td>
                   <td className="py-[16px] px-4 text-[13px] font-medium text-[#64748B]">{lead.phone}</td>
                   <td className="py-[16px] px-4 text-[13px] font-medium text-[#64748B]">{lead.email}</td>
                   <td className="py-[16px] px-4 text-[13px] font-medium text-[#64748B]">{lead.date}</td>
-                  <td className="py-[16px] pl-4">
+                  <td className="py-[16px] pr-6 pl-4">
                     <div className="flex items-center gap-3">
                       <button 
                         onClick={(e) => openModal(lead, e)}
@@ -189,7 +189,7 @@ export default function LeadsPage() {
             Showing {(validCurrentPage - 1) * itemsPerPage + (currentLeads.length > 0 ? 1 : 0)} to {Math.min(validCurrentPage * itemsPerPage, totalItems)} of {totalItems} entries
           </div>
           
-          <div className="flex items-center gap-1.5 md:gap-2">
+          <div className="flex flex-wrap justify-center items-center gap-1.5 md:gap-2">
             <button
               onClick={() => handlePageChange(Math.max(1, validCurrentPage - 1))}
               disabled={validCurrentPage === 1}
@@ -197,7 +197,7 @@ export default function LeadsPage() {
             >
               Previous
             </button>
-            <div className="flex items-center gap-1">
+            <div className="flex flex-wrap justify-center items-center gap-1">
               {getPageNumbers().map(pageNum => (
                 <button
                   key={pageNum}

@@ -50,7 +50,7 @@ export default function Header({ setSidebarOpen }: HeaderProps) {
       <div className="flex items-center gap-3 md:gap-4">
         <button
           onClick={() => setSidebarOpen(true)}
-          className="md:hidden p-2 text-gray-500 hover:bg-gray-100 rounded-lg transition-colors"
+          className="lg:hidden p-2 text-gray-500 hover:bg-gray-100 rounded-lg transition-colors"
           aria-label="Open sidebar"
         >
           <Menu size={20} />
