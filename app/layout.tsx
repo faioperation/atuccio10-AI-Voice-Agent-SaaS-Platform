@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
 };
 
-import { QueryProvider } from "@/components/common component/Providers";
+import { QueryProvider } from "@/(components)/Providers";
 
 export default function RootLayout({
   children,

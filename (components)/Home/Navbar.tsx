@@ -25,7 +25,7 @@ export default function Navbar() {
             alt="Clinch"
             width={120}
             height={80}
-            style={{ width: "auto", height: "80px", objectFit: "contain" }}
+            style={{ width: "auto", height: "auto", objectFit: "contain" }}
             priority
           />
         </a>

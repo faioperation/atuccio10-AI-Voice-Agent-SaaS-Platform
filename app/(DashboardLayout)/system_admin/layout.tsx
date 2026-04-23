@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import Sidebar from "@/(components)/buisness_dashboard_components/common component/Sidebar";
-import Header from "@/(components)/buisness_dashboard_components/common component/Header";
+import SystemSidebar from "@/(components)/system_admin_components/common/SystemSidebar";
+import SystemHeader from "@/(components)/system_admin_components/common/SystemHeader";
 
-interface DashboardLayoutProps {
+interface SystemLayoutProps {
   children: React.ReactNode;
 }
 
-export default function DashboardLayout({ children }: DashboardLayoutProps) {
+export default function SystemLayout({ children }: SystemLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -16,7 +16,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
       {/* ── Desktop Sidebar (sticky) ── */}
       <aside className="hidden lg:flex w-[260px] flex-shrink-0 border-r border-[#EDEFF2] h-screen sticky top-0 bg-white">
-        <Sidebar />
+        <SystemSidebar />
       </aside>
 
       {/* ── Mobile Sidebar (smooth drawer overlay) ── */}
@@ -35,7 +35,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           className={`absolute left-0 top-0 h-full w-[260px] bg-white border-r border-[#EDEFF2] shadow-2xl transform transition-transform duration-300 ease-out ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
             }`}
         >
-          <Sidebar closeSidebar={() => setSidebarOpen(false)} />
+          <SystemSidebar closeSidebar={() => setSidebarOpen(false)} />
         </div>
       </div>
 
@@ -43,7 +43,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       <div className="flex flex-col flex-1 min-w-0">
 
         {/* Sticky Header / Navbar */}
-        <Header setSidebarOpen={setSidebarOpen} />
+        <SystemHeader setSidebarOpen={setSidebarOpen} />
 
         {/* Page Content */}
         <main className="flex-1 p-4 md:p-6 lg:p-8 bg-[#F5F7FA]">

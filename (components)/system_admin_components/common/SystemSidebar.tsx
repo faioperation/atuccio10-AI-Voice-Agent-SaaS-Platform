@@ -3,33 +3,23 @@
 import React from "react";
 import {
   LayoutDashboard,
-  PhoneCall,
   Users,
-  CalendarDays,
-  Settings,
-  CreditCard,
+  Layers,
   LifeBuoy,
   UserCircle,
-  LogOut,
-  X,
-  Check,
-  Mic,
   LogIn,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 const menuItems = [
-  { name: "Dashboard", href: "/business_admin", icon: LayoutDashboard },
-  { name: "Call Logs", href: "/business_admin/call-logs", icon: PhoneCall },
-  { name: "Leads", href: "/business_admin/leads", icon: Users },
-  { name: "Appointment", href: "/business_admin/appointment", icon: CalendarDays },
-  { name: "Configuration", href: "/business_admin/configuration", icon: Settings },
-  { name: "Voice Configuration", href: "/business_admin/voice-configuration", icon: Mic },
-  { name: "Manage Plan", href: "/business_admin/manage-plan", icon: CreditCard },
-  { name: "Support Ticket", href: "/business_admin/support-ticket", icon: LifeBuoy },
-  { name: "Profile", href: "/business_admin/profile", icon: UserCircle },
+  { name: "Dashboard", href: "/system_admin", icon: LayoutDashboard },
+  { name: "Users", href: "/system_admin/users", icon: Users },
+  { name: "Manage Tiers", href: "/system_admin/manage-tiers", icon: Layers },
+  { name: "Support Ticket", href: "/system_admin/support-ticket", icon: LifeBuoy },
+  { name: "Profile", href: "/system_admin/profile", icon: UserCircle },
 ];
 
 interface SidebarProps {
@@ -37,7 +27,7 @@ interface SidebarProps {
   closeSidebar?: () => void;
 }
 
-export default function Sidebar({ closeSidebar }: SidebarProps) {
+export default function SystemSidebar({ closeSidebar }: SidebarProps) {
   const pathname = usePathname();
 
   const handleLinkClick = () => {
@@ -48,7 +38,6 @@ export default function Sidebar({ closeSidebar }: SidebarProps) {
     <aside className="flex flex-col w-full h-full bg-white overflow-y-auto">
 
       {/* Mobile close button */}
-      {/* Mobile close button – positioned to align with logo header */}
       {closeSidebar && (
         <button
           onClick={closeSidebar}
@@ -67,7 +56,7 @@ export default function Sidebar({ closeSidebar }: SidebarProps) {
             width={90}
             height={36}
             className="object-contain"
-            style={{ height: 'auto' }}
+            style={{ width: 'auto', height: 'auto' }}
             priority
           />
         </Link>
@@ -121,7 +110,7 @@ export default function Sidebar({ closeSidebar }: SidebarProps) {
           hover:bg-red-50 transition-colors"
         >
           <LogIn size={18} strokeWidth={1.8} />
-          <span>Login</span>
+          <span>Logout</span>
         </Link>
       </div>
     </aside>

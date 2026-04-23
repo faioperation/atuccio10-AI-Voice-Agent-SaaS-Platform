@@ -13,13 +13,13 @@ import {
   Bar,
   Cell,
 } from "recharts";
-import StatsCard from "@/components/Dashboard/StatsCard";
-import RecentCalls from "@/components/Dashboard/RecentCalls";
-import Notifications from "@/components/Dashboard/Notifications";
+import StatsCard from "@/(components)/buisness_dashboard_components/Dashboard/StatsCard";
+import RecentCalls from "@/(components)/buisness_dashboard_components/Dashboard/RecentCalls";
+import Notifications from "@/(components)/buisness_dashboard_components/Dashboard/Notifications";
 
 const leadsData = [
-  { name: "1 Jan",  thisMonth: 140, lastMonth: 200 },
-  { name: "5 Jan",  thisMonth: 190, lastMonth: 170 },
+  { name: "1 Jan", thisMonth: 140, lastMonth: 200 },
+  { name: "5 Jan", thisMonth: 190, lastMonth: 170 },
   { name: "10 Jan", thisMonth: 155, lastMonth: 185 },
   { name: "15 Jan", thisMonth: 290, lastMonth: 155 },
   { name: "20 Jan", thisMonth: 245, lastMonth: 165 },

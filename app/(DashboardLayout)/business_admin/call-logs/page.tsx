@@ -4,8 +4,8 @@ import React, { useState, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Search } from "lucide-react";
-import TranscriptModal from "@/components/CallLogs/TranscriptModal";
-import Loader from "@/components/Shared/Loader";
+import TranscriptModal from "@/(components)/buisness_dashboard_components/CallLogs/TranscriptModal";
+import Loader from "@/(components)/Shared/Loader";
 
 interface CallLog {
   id: string;
@@ -56,7 +56,7 @@ export default function CallLogsPage() {
   const totalItems = filteredLogs.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
   const validCurrentPage = Math.min(currentPage, totalPages);
-  
+
   const currentLogs = useMemo(() => {
     const startIndex = (validCurrentPage - 1) * itemsPerPage;
     return filteredLogs.slice(startIndex, startIndex + itemsPerPage);
@@ -139,8 +139,8 @@ export default function CallLogsPage() {
                   <td className="py-[16px] px-4 text-[13px] font-medium text-[#64748B]">{log.duration}</td>
                   <td className="py-[16px] px-4 text-[13px] font-medium text-[#64748B]">{log.status}</td>
                   <td className="py-[16px] pr-6 pl-4 text-[13px] font-semibold">
-                    <a 
-                      href="#" 
+                    <a
+                      href="#"
                       onClick={(e) => openTranscript(log.id, e)}
                       className="underline decoration-1 underline-offset-[3px] text-[#0C1824] hover:text-[#1A6BDC] transition-colors cursor-pointer"
                     >
@@ -163,7 +163,7 @@ export default function CallLogsPage() {
           <div className="text-[13.5px] font-medium text-[#64748B]">
             Showing {(validCurrentPage - 1) * itemsPerPage + (currentLogs.length > 0 ? 1 : 0)} to {Math.min(validCurrentPage * itemsPerPage, totalItems)} of {totalItems} entries
           </div>
-          
+
           <div className="flex flex-wrap justify-center items-center gap-1.5 md:gap-2">
             <button
               onClick={() => handlePageChange(Math.max(1, validCurrentPage - 1))}
@@ -177,11 +177,10 @@ export default function CallLogsPage() {
                 <button
                   key={pageNum}
                   onClick={() => handlePageChange(pageNum)}
-                  className={`w-[36px] h-[36px] flex items-center justify-center rounded-lg text-[13.5px] font-semibold transition-colors ${
-                    validCurrentPage === pageNum
-                      ? "bg-[#5D87FF] text-white shadow-sm"
-                      : "bg-white text-[#64748B] hover:bg-[#F5F7FA]"
-                  }`}
+                  className={`w-[36px] h-[36px] flex items-center justify-center rounded-lg text-[13.5px] font-semibold transition-colors ${validCurrentPage === pageNum
+                    ? "bg-[#5D87FF] text-white shadow-sm"
+                    : "bg-white text-[#64748B] hover:bg-[#F5F7FA]"
+                    }`}
                 >
                   {pageNum}
                 </button>
@@ -198,10 +197,10 @@ export default function CallLogsPage() {
         </div>
       </div>
 
-      <TranscriptModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        callId={selectedCallId} 
+      <TranscriptModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        callId={selectedCallId}
       />
     </div>
   );

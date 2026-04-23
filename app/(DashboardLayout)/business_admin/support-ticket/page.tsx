@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import SupportForm from "@/components/Support/SupportForm";
+import SupportForm from "@/(components)/buisness_dashboard_components/Support/SupportForm";
 
 export default function SupportTicketPage() {
   return (

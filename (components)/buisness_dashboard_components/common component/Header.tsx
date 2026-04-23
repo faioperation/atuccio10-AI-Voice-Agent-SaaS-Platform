@@ -4,7 +4,7 @@ import { Menu, Bell } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import NotificationPanel from "@/components/common component/NotificationPanel";
+import NotificationPanel from "@/(components)/buisness_dashboard_components/common component/NotificationPanel";
 
 interface HeaderProps {
   setSidebarOpen: (open: boolean) => void;
@@ -26,7 +26,7 @@ const switchTitle: Record<string, string> = {
 export default function Header({ setSidebarOpen }: HeaderProps) {
   const pathname = usePathname();
   const title = switchTitle[pathname] || "Dashboard";
-  
+
   const [showNotif, setShowNotif] = useState(false);
   const notifRef = useRef<HTMLDivElement>(null);
 
@@ -55,12 +55,19 @@ export default function Header({ setSidebarOpen }: HeaderProps) {
         <h1 className="text-[20px] md:text-[28px] lg:text-[32px] font-[600] text-[#0C1824] tracking-tight">{title}</h1>
       </div>
 
-      {/* Right: Bell + Avatar */}
-      <div className="flex items-center gap-4">
-        
+      {/* Right: Switch + Bell + Avatar */}
+      <div className="flex items-center gap-3 sm:gap-4">
+        {/* Temporary Switch Link */}
+        <Link 
+          href="/system_admin" 
+          className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl border border-[#EDEFF2] text-[12px] font-bold text-[#1A6BDC] hover:bg-[#F3F7FF] transition-all shadow-sm"
+        >
+          Switch to System
+        </Link>
+
         {/* Notification Bell with Dropdown Modal */}
         <div className="relative" ref={notifRef}>
-          <button 
+          <button
             onClick={() => setShowNotif(!showNotif)}
             className={`relative p-2 rounded-full transition-colors ${showNotif ? 'bg-[#F0F5FF] text-[#1A6BDC]' : 'text-[#64748B] hover:bg-[#F5F7FA]'}`}
           >

@@ -49,6 +49,7 @@ export default function SignupPage() {
                 width={160}
                 height={160}
                 className="object-contain"
+                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
             <h1 className="text-[28px] font-bold text-[#0C1824] leading-tight mt-2">Create an Account</h1>
