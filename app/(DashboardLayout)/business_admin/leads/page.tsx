@@ -4,8 +4,8 @@ import React, { useState, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Search, Eye, Trash2 } from "lucide-react";
-import Loader from "@/components/Shared/Loader";
-import ViewLeadModal from "@/components/Leads/ViewLeadModal";
+import Loader from "@/(components)/Shared/Loader";
+import ViewLeadModal from "@/(components)/buisness_dashboard_components/Leads/ViewLeadModal";
 
 interface Lead {
   id: string;
@@ -74,7 +74,7 @@ export default function LeadsPage() {
   const totalItems = filteredLeads.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
   const validCurrentPage = Math.min(currentPage, Math.max(1, totalPages));
-  
+
   const currentLeads = useMemo(() => {
     const startIndex = (validCurrentPage - 1) * itemsPerPage;
     return filteredLeads.slice(startIndex, startIndex + itemsPerPage);
@@ -156,14 +156,14 @@ export default function LeadsPage() {
                   <td className="py-[16px] px-4 text-[13px] font-medium text-[#64748B]">{lead.date}</td>
                   <td className="py-[16px] pr-6 pl-4">
                     <div className="flex items-center gap-3">
-                      <button 
+                      <button
                         onClick={(e) => openModal(lead, e)}
                         className="text-[#64748B] hover:text-[#1A6BDC] transition-colors"
                         title="View Details"
                       >
                         <Eye size={18} />
                       </button>
-                      <button 
+                      <button
                         onClick={(e) => handleDelete(lead.id, e)}
                         className="text-[#EF4444] hover:text-[#DC2626] transition-colors"
                         title="Delete Lead"
@@ -188,7 +188,7 @@ export default function LeadsPage() {
           <div className="text-[13.5px] font-medium text-[#64748B]">
             Showing {(validCurrentPage - 1) * itemsPerPage + (currentLeads.length > 0 ? 1 : 0)} to {Math.min(validCurrentPage * itemsPerPage, totalItems)} of {totalItems} entries
           </div>
-          
+
           <div className="flex flex-wrap justify-center items-center gap-1.5 md:gap-2">
             <button
               onClick={() => handlePageChange(Math.max(1, validCurrentPage - 1))}
@@ -202,11 +202,10 @@ export default function LeadsPage() {
                 <button
                   key={pageNum}
                   onClick={() => handlePageChange(pageNum)}
-                  className={`w-[36px] h-[36px] flex items-center justify-center rounded-lg text-[13.5px] font-semibold transition-colors ${
-                    validCurrentPage === pageNum
-                      ? "bg-[#5D87FF] text-white shadow-sm"
-                      : "bg-white text-[#64748B] hover:bg-[#F5F7FA]"
-                  }`}
+                  className={`w-[36px] h-[36px] flex items-center justify-center rounded-lg text-[13.5px] font-semibold transition-colors ${validCurrentPage === pageNum
+                    ? "bg-[#5D87FF] text-white shadow-sm"
+                    : "bg-white text-[#64748B] hover:bg-[#F5F7FA]"
+                    }`}
                 >
                   {pageNum}
                 </button>
@@ -223,10 +222,10 @@ export default function LeadsPage() {
         </div>
       </div>
 
-      <ViewLeadModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        lead={selectedLead} 
+      <ViewLeadModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        lead={selectedLead}
       />
     </div>
   );

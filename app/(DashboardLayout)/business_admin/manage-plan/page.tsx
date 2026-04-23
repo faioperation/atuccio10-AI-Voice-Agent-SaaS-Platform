@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import CurrentPlan from "@/components/ManagePlan/CurrentPlan";
-import SubscriptionHistory from "@/components/ManagePlan/SubscriptionHistory";
-import PricingSelection from "@/components/ManagePlan/PricingSelection";
+import CurrentPlan from "@/(components)/buisness_dashboard_components/ManagePlan/CurrentPlan";
+import SubscriptionHistory from "@/(components)/buisness_dashboard_components/ManagePlan/SubscriptionHistory";
+import PricingSelection from "@/(components)/buisness_dashboard_components/ManagePlan/PricingSelection";
 
 export default function ManagePlanPage() {
   const [view, setView] = useState<"manage" | "upgrade">("manage");

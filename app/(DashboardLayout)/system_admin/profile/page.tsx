@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import ProfileInfo from "@/(components)/buisness_dashboard_components/Profile/ProfileInfo";
-import EditProfileModal from "@/(components)/buisness_dashboard_components/Profile/EditProfileModal";
-import ChangePasswordModal from "@/(components)/buisness_dashboard_components/Profile/ChangePasswordModal";
+import ProfileInfo from "@/(components)/system_admin_components/Profile/ProfileInfo";
+import EditProfileModal from "@/(components)/system_admin_components/Profile/EditProfileModal";
+import ChangePasswordModal from "@/(components)/system_admin_components/Profile/ChangePasswordModal";
 
 export default function ProfilePage() {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);

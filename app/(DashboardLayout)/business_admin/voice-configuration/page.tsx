@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown, Mic } from "lucide-react";
-import VoiceModal from "@/components/VoiceConfiguration/VoiceModal";
+import VoiceModal from "@/(components)/buisness_dashboard_components/VoiceConfiguration/VoiceModal";
 
 export default function VoiceConfigurationPage() {
   const [gender, setGender] = useState("Male");

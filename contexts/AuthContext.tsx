@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 // import { useQuery } from "@tanstack/react-query";
 // import useAxiosSecure from "@/hooks/useAxiosSecure";
 // import Cookies from "js-cookie";
-import Loader from "@/components/Shared/Loader";
+import Loader from "@/(components)/Shared/Loader";
 
 interface User {
   id?: string;
@@ -27,14 +27,14 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(false);
-  
+
   // const axiosSecure = useAxiosSecure();
 
   /* ======================
       FUTURE BACKEND INTEGRATION
       When your backend is ready, uncomment the imports and logic below.
   ====================== */
-  
+
   /*
   const accessToken = Cookies.get("accessToken");
 

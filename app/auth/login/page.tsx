@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Eye, EyeOff } from "lucide-react";
 // import useAxiosSecure from "@/hooks/useAxios";
-// import { useAuth } from "@/components/Provider/AuthProvider";
+// import { useAuth } from "@/(components)/buisness_dashboard_components/common component/Providers";
 // import Cookies from "js-cookie";
 // import axios from "axios";
 // import { toast } from "react-toastify";
@@ -39,6 +39,7 @@ export default function LoginPage() {
                 width={160}
                 height={160}
                 className="object-contain"
+                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
             <h1 className="text-[28px] font-bold text-[#0C1824] leading-tight mt-2">Login to your Profile</h1>
